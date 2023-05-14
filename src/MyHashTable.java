@@ -53,4 +53,7 @@ public class MyHashTable<K,V> {
             }
         }
     }
+    public int size() {
+        return size;
+    }
 }
