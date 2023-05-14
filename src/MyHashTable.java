@@ -1,18 +1,23 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 public class MyHashTable<K,V> {
-    private class HashNode<K, V>{
-        private K key;
-        private V value;
-        private HashNode<K, V> next;
-        public HashNode(K key, V value){
+    private static class Node<K, V> {
+        K key;
+        V value;
+
+        public Node(K key, V value) {
             this.key = key;
             this.value = value;
         }
-        public String toString(){
-            return "{" + key + " " + value + "}";
-        }
     }
-    private HashNode<K,V>[] chainArray;
-    private int M = 11;
+    private ArrayList<ArrayList<Node<K, V>>> buckets;
     private int size;
-
+    public MyHashTable() {
+        buckets = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            buckets.add(new ArrayList<>());
+        }
+        size = 0;
+    }
 }
