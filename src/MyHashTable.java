@@ -20,4 +20,16 @@ public class MyHashTable<K,V> {
         }
         size = 0;
     }
+    public void put(K key, V value) {
+        int hash = key.hashCode() % buckets.size();
+        ArrayList<Node<K, V>> bucket = buckets.get(hash);
+        for (Node<K, V> node : bucket) {
+            if (node.key.equals(key)) {
+                node.value = value;
+                return;
+            }
+        }
+        bucket.add(new Node<>(key, value));
+        size++;
+    }
 }
